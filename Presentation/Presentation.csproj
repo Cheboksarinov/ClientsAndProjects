@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

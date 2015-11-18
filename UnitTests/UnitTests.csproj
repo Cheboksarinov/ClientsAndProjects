@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataManagerShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClientListViewModelShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
