@@ -1,0 +1,21 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels ="clr-namespace:Presentation.ViewModels;assembly=Presentation"
+        xmlns:controls = "clr-namespace:UI.Controls"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewmodels:MainViewModel}"
+        Title="MainWindow" Height="700" Width="1000">
+    <TabControl HorizontalAlignment="Left" Height="668" Margin="0,0,-391,-663" Grid.Row="1" VerticalAlignment="Top" Width="992">
+        <TabItem Name="ClientsTab" Header="Client" Height="22" VerticalAlignment="Bottom" >
+            <controls:ClientDataUserControl DataContext="{Binding ClientList}"/>
+        </TabItem>
+        <TabItem Header="Projects">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="222"></Label>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
