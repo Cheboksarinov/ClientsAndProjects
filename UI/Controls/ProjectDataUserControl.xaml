@@ -24,6 +24,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Content="Add Project" Grid.Row="1" Grid.Column="1" />
+        <Button Content="Add Project" Command="{Binding ShowNewProjectControl}" Grid.Row="1" Grid.Column="1" />
     </Grid>
 </UserControl>

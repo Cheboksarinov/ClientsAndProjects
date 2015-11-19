@@ -65,6 +65,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\NewProjectUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ProjectDataUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +94,9 @@
     </Compile>
     <Compile Include="Controls\NewClientUserControl.xaml.cs">
       <DependentUpon>NewClientUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewProjectUserControl.xaml.cs">
+      <DependentUpon>NewProjectUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ProjectDataUserControl.xaml.cs">
       <DependentUpon>ProjectDataUserControl.xaml</DependentUpon>

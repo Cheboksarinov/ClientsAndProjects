@@ -16,6 +16,23 @@ namespace UnitTests.ViewModels {
         }
 
         [Test]
+        public void AddClientToStorageWhenClickAddButton()
+        {
+            var projectForAdd = new Project
+            {
+                Name = "Name 1",
+                ClientName = "Client 1",
+                Status = "Status 1"
+            };
+            projectListViewModel = Open();
+            InsertNewClientData(projectForAdd);
+
+            projectListViewModel.NewProject.Add.Execute(null);
+
+            Assert.IsTrue(IsProjectStorageContainProject(projectForAdd));
+        }
+
+        [Test]
         public void RemoveProjectFromStorageWhenClickRemoveButton() {
             var projectForRemove = new Project {
                 Name = "Name 1",
@@ -38,6 +55,13 @@ namespace UnitTests.ViewModels {
         {
             return projectStorage.Projects.Any(_ => _.Name == project.Name && _.ClientName == project.ClientName &&
                                                     _.Status == project.Status);
+        }
+
+        private void InsertNewClientData(Project projectForAdd)
+        {
+            projectListViewModel.NewProject.Name = projectForAdd.Name;
+            projectListViewModel.NewProject.ClientName= projectForAdd.ClientName;
+            projectListViewModel.NewProject.Status = projectForAdd.Status;
         }
     }
 }

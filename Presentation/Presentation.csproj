@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="AvaliableProjectStatus.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientStorage.cs" />
     <Compile Include="Models\Project.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NewClientViewModel.cs" />
+    <Compile Include="ViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\ProjectListViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
