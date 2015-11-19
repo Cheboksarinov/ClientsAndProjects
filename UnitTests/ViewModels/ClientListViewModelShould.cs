@@ -14,12 +14,28 @@ namespace UnitTests.ViewModels {
         private ClientListViewModel clientListViewModel;
         private ClientStorage clientStorage;
 
-        private bool? IsClientStorageContainClient(Client clientForRemove) {
-            return clientStorage.Clients.Contains(clientForRemove);
+        private void InsertNewClientData(Client clientForAdd) {
+            clientListViewModel.NewClient.Name = clientForAdd.Name;
+            clientListViewModel.NewClient.ContactName = clientForAdd.ContactName;
+        }
+
+        private bool? IsClientStorageContainClient(Client client) {
+            return clientStorage.Clients.Any(_ => _.Name == client.Name && _.ContactName == client.ContactName);
         }
 
         private ClientListViewModel Open() {
             return new ClientListViewModel(clientStorage);
+        }
+
+        [Test]
+        public void AddClientToStorageWhenClickAddButton() {
+            var clientForAdd = new Client {Name = "Name 1", ContactName = "Contact 1"};
+            clientListViewModel = Open();
+            InsertNewClientData(clientForAdd);
+
+            clientListViewModel.NewClient.Add.Execute(null);
+
+            Assert.IsTrue(IsClientStorageContainClient(clientForAdd));
         }
 
         [Test]

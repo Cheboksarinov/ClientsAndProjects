@@ -7,6 +7,7 @@ namespace Presentation.ViewModels {
         private readonly ClientListViewModel parent;
         private ICommand removeCommand;
 
+
         public ClientViewModel(Client client, ClientListViewModel parent) {
             this.client = client;
             this.parent = parent;
@@ -28,5 +29,7 @@ namespace Presentation.ViewModels {
         public ICommand Remove {
             get { return removeCommand ?? (removeCommand = new Command(() => parent.RemoveClient(client))); }
         }
+
+      
     }
 }

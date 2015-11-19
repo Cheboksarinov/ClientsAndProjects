@@ -15,9 +15,11 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="{Binding Name , FallbackValue=FallName}" />
         <Label Grid.Column="1" Grid.Row="0" Content="{Binding ContactName, FallbackValue=FallContact}" />
+        <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"/>
         <Button Name="RemoveClientButton" Command="{Binding Remove}" Grid.Column="2" Grid.Row="0" Content="X" Width="20" Height="20" />
     </Grid>
 </UserControl>

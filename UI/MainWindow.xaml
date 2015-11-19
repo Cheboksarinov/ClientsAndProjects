@@ -7,15 +7,32 @@
         xmlns:controls = "clr-namespace:UI.Controls"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance viewmodels:MainViewModel}"
-        Title="MainWindow" Height="700" Width="1000">
-    <TabControl HorizontalAlignment="Left" Height="668" Margin="0,0,-391,-663" Grid.Row="1" VerticalAlignment="Top" Width="992">
-        <TabItem Name="ClientsTab" Header="Client" Height="22" VerticalAlignment="Bottom" >
-            <controls:ClientDataUserControl DataContext="{Binding ClientList}"/>
-        </TabItem>
-        <TabItem Header="Projects">
-            <Grid Background="#FFE5E5E5">
-                <Label Content="222"></Label>
-            </Grid>
-        </TabItem>
-    </TabControl>
+        Title="MainWindow" MinHeight="700" MinWidth="1000">
+    <Grid>
+        <TabControl  VerticalAlignment="Stretch">
+            <TabItem Header="Clients" Height="22" VerticalAlignment="Bottom" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <controls:ClientDataUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ClientList}"/>
+                    <controls:NewClientUserControl Grid.Column="1" Grid.Row="0" DataContext="{Binding ClientList.NewClient}"/>
+                </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Projects">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="222"></Label>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

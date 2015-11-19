@@ -1,6 +1,7 @@
 ﻿using Infrastructure;
 using Presentation.Models;
 using Presentation.ViewModels;
+using UI.Controls;
 
 namespace UI {
     public class Bootstrapper {
