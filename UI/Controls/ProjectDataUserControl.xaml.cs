@@ -3,11 +3,11 @@
 namespace UI.Controls
 {
     /// <summary>
-    /// Interaction logic for ClientUserControl.xaml
+    /// Interaction logic for ProjectDataUserControl.xaml
     /// </summary>
-    public partial class ClientUserControl : UserControl
+    public partial class ProjectDataUserControl : UserControl
     {
-        public ClientUserControl()
+        public ProjectDataUserControl()
         {
             InitializeComponent();
         }

@@ -29,9 +29,21 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Projects">
-                <Grid Background="#FFE5E5E5">
-                    <Label Content="222"></Label>
-                </Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <controls:ProjectDataUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ProjectList}"/>
+                    </Grid>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>

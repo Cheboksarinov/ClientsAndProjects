@@ -13,10 +13,13 @@ namespace UI {
 
         public void Start(MainWindow window) {
             var clientStorage = new ClientStorage();
+            var projectStorage = new ProjectStorage();
             var dataManager = new DataManager();
             dataManager.LoadDefaultClients(clientStorage);
+            dataManager.LoadDefaultProjects(projectStorage);
             var clientListViewModel = new ClientListViewModel(clientStorage);
-            var mainViewModel = new MainViewModel(clientListViewModel);
+            var projectListViewModel = new ProjectListViewModel(projectStorage);
+            var mainViewModel = new MainViewModel(clientListViewModel, projectListViewModel);
             window.DataContext = mainViewModel;
             window.Show();
         }
