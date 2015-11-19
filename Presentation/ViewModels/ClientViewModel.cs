@@ -7,11 +7,11 @@ namespace Presentation.ViewModels {
         private readonly ClientListViewModel parent;
         private ICommand removeCommand;
 
-
         public ClientViewModel(Client client, ClientListViewModel parent) {
             this.client = client;
             this.parent = parent;
         }
+
         public string ContactName {
             get { return client.ContactName; }
             set {
@@ -19,6 +19,7 @@ namespace Presentation.ViewModels {
                 OnPropertyChanged("ContactName");
             }
         }
+
         public string Name {
             get { return client.Name; }
             set {
@@ -26,10 +27,9 @@ namespace Presentation.ViewModels {
                 OnPropertyChanged("Name");
             }
         }
+
         public ICommand Remove {
             get { return removeCommand ?? (removeCommand = new Command(() => parent.RemoveClient(client))); }
         }
-
-      
     }
 }

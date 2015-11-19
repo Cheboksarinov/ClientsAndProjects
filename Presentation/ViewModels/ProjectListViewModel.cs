@@ -4,54 +4,46 @@ using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
-namespace Presentation.ViewModels
-{
-    
-    public class ProjectListViewModel:ViewModel
-    {
+namespace Presentation.ViewModels {
+    public class ProjectListViewModel : ViewModel {
         private readonly ProjectStorage projectStorage;
-        private NewProjectViewModel newProject;
-        public ICommand ShowNewProjectControl { get; private set; }
+
         public ProjectListViewModel(ProjectStorage projectStorage) {
             this.projectStorage = projectStorage;
-            newProject = new NewProjectViewModel(this);
+            NewProject = new NewProjectViewModel(this);
             ShowNewProjectControl = new Command(OnShowNewProjectControl);
         }
-        public IEnumerable<ProjectViewModel> Projects
-        {
-            get
-            {
+
+        public ICommand ShowNewProjectControl { get; private set; }
+
+        public IEnumerable<ProjectViewModel> Projects {
+            get {
                 return from project in projectStorage.Projects
-                       select new ProjectViewModel(project, this);
+                    select new ProjectViewModel(project, this);
             }
         }
-        public NewProjectViewModel NewProject
-        {
-            get { return newProject; }
-        }
-        internal void RemoveProject(Project project)
-        {
+
+        public NewProjectViewModel NewProject { get; private set; }
+
+        internal void RemoveProject(Project project) {
             projectStorage.Projects.Remove(project);
             OnPropertyChanged("Projects");
         }
 
-        internal void AddProject(Project project)
-        {
+        internal void AddProject(Project project) {
             projectStorage.AddProject(project);
             OnPropertyChanged("Projects");
-            newProject = new NewProjectViewModel(this);
+            NewProject = new NewProjectViewModel(this);
             HideNewClientControl();
         }
 
-        public void OnShowNewProjectControl()
-        {
-            newProject.Visible = Visibility.Visible;
+        public void OnShowNewProjectControl() {
+            NewProject.Visible = Visibility.Visible;
             OnPropertyChanged("NewProject");
         }
 
-        private void HideNewClientControl()
-        {
-            newProject.Visible = Visibility.Hidden;
+        private void HideNewClientControl() {
+            NewProject.Visible = Visibility.Hidden;
             OnPropertyChanged("NewProject");
         }
     }

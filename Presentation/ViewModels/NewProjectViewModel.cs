@@ -4,29 +4,25 @@ using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
-namespace Presentation.ViewModels
-{
-    public class NewProjectViewModel:ViewModel
-    {
-        private readonly Project project;
-        private readonly ProjectListViewModel parent;
+namespace Presentation.ViewModels {
+    public class NewProjectViewModel : ViewModel {
         private readonly List<string> avaliableStatusList;
-        private Visibility visible;
+        private readonly ProjectListViewModel parent;
+        private readonly Project project;
         private ICommand addCommand;
+        private Visibility visible;
 
         public NewProjectViewModel(ProjectListViewModel parent) {
             this.parent = parent;
-            project = new Project{ClientName = "", Name = "",Status = ""};
+            project = new Project {ClientName = "", Name = "", Status = ""};
             avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
             visible = Visibility.Hidden;
             Status = avaliableStatusList.First();
         }
 
-        public string Name
-        {
+        public string Name {
             get { return project.Name; }
-            set
-            {
+            set {
                 project.Name = value;
                 OnPropertyChanged("Name");
             }
@@ -36,35 +32,31 @@ namespace Presentation.ViewModels
             get { return avaliableStatusList; }
         }
 
-        public string ClientName
-        {
+        public string ClientName {
             get { return project.ClientName; }
-            set
-            {
+            set {
                 project.ClientName = value;
                 OnPropertyChanged("ClientName");
             }
         }
-        public string Status
-        {
+
+        public string Status {
             get { return project.Status; }
-            set
-            {
+            set {
                 project.Status = value;
                 OnPropertyChanged("Status");
             }
         }
-        public Visibility Visible
-        {
+
+        public Visibility Visible {
             get { return visible; }
-            set
-            {
+            set {
                 visible = value;
                 OnPropertyChanged("Visible");
             }
         }
-        public ICommand Add
-        {
+
+        public ICommand Add {
             get { return addCommand ?? (addCommand = new Command(() => parent.AddProject(project))); }
         }
     }

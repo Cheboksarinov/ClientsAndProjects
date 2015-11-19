@@ -1,15 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
-namespace UI.Controls
-{
+namespace UI.Controls {
     /// <summary>
-    /// Interaction logic for NewClientUserControl.xaml
+    ///     Interaction logic for NewClientUserControl.xaml
     /// </summary>
-    public partial class NewClientUserControl : UserControl
-    {
-        public NewClientUserControl()
-        {
+    public partial class NewClientUserControl : UserControl {
+        public NewClientUserControl() {
             InitializeComponent();
         }
     }

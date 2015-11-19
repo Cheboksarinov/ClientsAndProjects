@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Presentation
-{
-    public static class AvaliableProjectStatus
-    {
+namespace Presentation {
+    public static class AvaliableProjectStatus {
         private static readonly List<string> projectStatusCollection;
-
         static AvaliableProjectStatus() {
             projectStatusCollection = new List<string> {
                 "Первичный контакт",
@@ -15,9 +12,7 @@ namespace Presentation
                 "Закончен"
             };
         }
-
-        public static List<string> GetAvaliableStatusList()
-        {
+        public static List<string> GetAvaliableStatusList() {
             return projectStatusCollection;
         }
     }

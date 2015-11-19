@@ -2,50 +2,40 @@
 using System.Windows.Input;
 using Presentation.Models;
 
-namespace Presentation.ViewModels
-{
-    public class NewClientViewModel:ViewModel {
+namespace Presentation.ViewModels {
+    public class NewClientViewModel : ViewModel {
         private readonly Client client;
         private readonly ClientListViewModel parent;
-        private Visibility visible;
         private ICommand addCommand;
-
+        private Visibility visible;
         public NewClientViewModel(ClientListViewModel parent) {
             this.parent = parent;
             client = new Client {Name = "", ContactName = ""};
             visible = Visibility.Hidden;
         }
-
-        public string ContactName
-        {
+        public string ContactName {
             get { return client.ContactName; }
-            set
-            {
+            set {
                 client.ContactName = value;
                 OnPropertyChanged("ContactName");
             }
         }
-        public string Name
-        {
+        public string Name {
             get { return client.Name; }
-            set
-            {
+            set {
                 client.Name = value;
                 OnPropertyChanged("Name");
             }
         }
 
-        public Visibility Visible
-        {
-            get {return visible;}
+        public Visibility Visible {
+            get { return visible; }
             set {
                 visible = value;
                 OnPropertyChanged("Visible");
             }
         }
-
-        public ICommand Add
-        {
+        public ICommand Add {
             get { return addCommand ?? (addCommand = new Command(() => parent.AddClient(client))); }
         }
     }

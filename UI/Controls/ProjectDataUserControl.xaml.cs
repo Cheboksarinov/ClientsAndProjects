@@ -1,14 +1,11 @@
 ﻿using System.Windows.Controls;
 
-namespace UI.Controls
-{
+namespace UI.Controls {
     /// <summary>
-    /// Interaction logic for ProjectDataUserControl.xaml
+    ///     Interaction logic for ProjectDataUserControl.xaml
     /// </summary>
-    public partial class ProjectDataUserControl : UserControl
-    {
-        public ProjectDataUserControl()
-        {
+    public partial class ProjectDataUserControl : UserControl {
+        public ProjectDataUserControl() {
             InitializeComponent();
         }
     }
