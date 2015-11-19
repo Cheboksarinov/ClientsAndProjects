@@ -1,4 +1,5 @@
-﻿using Presentation.Models;
+﻿using System.Windows.Input;
+using Presentation.Models;
 
 namespace Presentation.ViewModels
 {
@@ -6,7 +7,7 @@ namespace Presentation.ViewModels
     {
         private readonly Project project;
         private readonly ProjectListViewModel parent;
-        
+        private ICommand removeCommand;
         public ProjectViewModel(Project project, ProjectListViewModel parent) {
             this.project = project;
             this.parent = parent;
@@ -34,6 +35,10 @@ namespace Presentation.ViewModels
                 OnPropertyChanged("Status");
             }
         }
-      
+        public ICommand Remove
+        {
+            get { return removeCommand ?? (removeCommand = new Command(() => parent.RemoveProject(project))); }
+        }
+
     }
 }

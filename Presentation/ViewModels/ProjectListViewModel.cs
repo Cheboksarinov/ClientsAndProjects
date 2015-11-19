@@ -5,7 +5,7 @@ using Presentation.Models;
 namespace Presentation.ViewModels
 {
     
-    public class ProjectListViewModel
+    public class ProjectListViewModel:ViewModel
     {
         private readonly ProjectStorage projectStorage;
 
@@ -20,5 +20,11 @@ namespace Presentation.ViewModels
                        select new ProjectViewModel(project, this);
             }
         }
+        internal void RemoveProject(Project project)
+        {
+            projectStorage.Projects.Remove(project);
+            OnPropertyChanged("Projects");
+        }
+
     }
 }

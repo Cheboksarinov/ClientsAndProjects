@@ -8,7 +8,6 @@ namespace Presentation.ViewModels {
     public class ClientListViewModel : ViewModel {
         private readonly ClientStorage clientStorage;
         private readonly NewClientViewModel newClient;
-
         public ClientListViewModel(ClientStorage clientStorage) {
             this.clientStorage = clientStorage;
             newClient = new NewClientViewModel(this);

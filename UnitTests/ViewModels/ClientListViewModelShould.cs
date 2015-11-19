@@ -6,25 +6,12 @@ using Presentation.ViewModels;
 namespace UnitTests.ViewModels {
     [TestFixture]
     internal class ClientListViewModelShould {
-        [SetUp]
-        public void SetUp() {
-            clientStorage = new ClientStorage();
-        }
-
         private ClientListViewModel clientListViewModel;
         private ClientStorage clientStorage;
 
-        private void InsertNewClientData(Client clientForAdd) {
-            clientListViewModel.NewClient.Name = clientForAdd.Name;
-            clientListViewModel.NewClient.ContactName = clientForAdd.ContactName;
-        }
-
-        private bool? IsClientStorageContainClient(Client client) {
-            return clientStorage.Clients.Any(_ => _.Name == client.Name && _.ContactName == client.ContactName);
-        }
-
-        private ClientListViewModel Open() {
-            return new ClientListViewModel(clientStorage);
+        [SetUp]
+        public void SetUp() {
+            clientStorage = new ClientStorage();
         }
 
         [Test]
@@ -47,6 +34,22 @@ namespace UnitTests.ViewModels {
             clientListViewModel.Client.Single().Remove.Execute(null);
 
             Assert.IsFalse(IsClientStorageContainClient(clientForRemove));
+        }
+
+        private void InsertNewClientData(Client clientForAdd)
+        {
+            clientListViewModel.NewClient.Name = clientForAdd.Name;
+            clientListViewModel.NewClient.ContactName = clientForAdd.ContactName;
+        }
+
+        private bool? IsClientStorageContainClient(Client client)
+        {
+            return clientStorage.Clients.Any(_ => _.Name == client.Name && _.ContactName == client.ContactName);
+        }
+
+        private ClientListViewModel Open()
+        {
+            return new ClientListViewModel(clientStorage);
         }
     }
 }
