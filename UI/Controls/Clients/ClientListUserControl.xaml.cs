@@ -4,8 +4,8 @@ namespace UI.Controls {
     /// <summary>
     ///     Interaction logic for ClientDataUserControl.xaml
     /// </summary>
-    public partial class ClientDataUserControl : UserControl {
-        public ClientDataUserControl() {
+    public partial class ClientListUserControl : UserControl {
+        public ClientListUserControl() {
             InitializeComponent();
         }
     }

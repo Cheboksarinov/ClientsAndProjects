@@ -8,7 +8,7 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ProjectsInformation {
     public class ProjectListViewModel : ViewModel {
         private readonly ProjectStorage projectStorage;
 
@@ -42,12 +42,12 @@ namespace Presentation.ViewModels {
         }
 
         public void OnShowNewProjectControl() {
-            NewProject.Visible = Visibility.Visible;
+            NewProject.AddNewProjectDialogVisible = Visibility.Visible;
             OnPropertyChanged("NewProject");
         }
 
         private void HideNewClientControl() {
-            NewProject.Visible = Visibility.Hidden;
+            NewProject.AddNewProjectDialogVisible = Visibility.Hidden;
             OnPropertyChanged("NewProject");
         }
     }

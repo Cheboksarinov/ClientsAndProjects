@@ -1,4 +1,7 @@
-﻿namespace Presentation.ViewModels {
+﻿using Presentation.ViewModels.ClientsInformation;
+using Presentation.ViewModels.ProjectsInformation;
+
+namespace Presentation.ViewModels {
     public class MainViewModel : ViewModel {
         public MainViewModel(ClientListViewModel clientListViewModel, ProjectListViewModel projectListViewModel) {
             ClientList = clientListViewModel;

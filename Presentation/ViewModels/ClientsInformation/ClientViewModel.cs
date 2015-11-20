@@ -5,7 +5,7 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ClientsInformation {
     public class ClientViewModel : ViewModel {
         private readonly Client client;
         private readonly ClientListViewModel parent;

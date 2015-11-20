@@ -3,6 +3,8 @@
 using Infrastructure;
 using Presentation.Models;
 using Presentation.ViewModels;
+using Presentation.ViewModels.ClientsInformation;
+using Presentation.ViewModels.ProjectsInformation;
 
 #endregion
 

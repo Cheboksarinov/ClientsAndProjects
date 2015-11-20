@@ -4,17 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:Presentation.ViewModels;assembly=Presentation"
+             xmlns:clientsInformation="clr-namespace:Presentation.ViewModels.ClientsInformation;assembly=Presentation"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
-             d:DataContext="{d:DesignInstance viewModels:NewClientViewModel}"
-             Visibility="{Binding Visible}">
+             d:DataContext="{d:DesignInstance clientsInformation:NewClientViewModel}"
+             Visibility="{Binding AddNewClientDialogVisible}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="50" />
-            <ColumnDefinition Width="*" MinWidth="50" />
-            <ColumnDefinition Width="*" MinWidth="50" />
+            <ColumnDefinition Width="Auto" MinWidth="65" />
+            <ColumnDefinition Width="*" MinWidth="65" />
+            <ColumnDefinition Width="*" MinWidth="65" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="20" />
             <RowDefinition Height="Auto" MinHeight="20" />
             <RowDefinition Height="Auto" MinHeight="20" />
             <RowDefinition Height="Auto" MinHeight="20" />
@@ -25,6 +27,7 @@
         <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Name}" />
         <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Height="20" />
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding ContactName}" />
-        <Button Grid.Column="2" Grid.Row="3" Content="Add" Command="{Binding Add}"/>
+        <Separator Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Height="20" />
+        <Button Grid.Column="2" Grid.Row="4" Content="Add" Command="{Binding Add}"/>
     </Grid>
 </UserControl>

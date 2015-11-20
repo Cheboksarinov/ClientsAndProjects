@@ -6,17 +6,17 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ClientsInformation {
     public class NewClientViewModel : ViewModel {
         private readonly Client client;
         private readonly ClientListViewModel parent;
         private ICommand addCommand;
-        private Visibility visible;
+        private Visibility addNewClientDialogVisible;
 
         public NewClientViewModel(ClientListViewModel parent) {
             this.parent = parent;
             client = new Client {Name = "", ContactName = ""};
-            visible = Visibility.Hidden;
+            addNewClientDialogVisible = Visibility.Hidden;
         }
 
         public string ContactName {
@@ -35,11 +35,11 @@ namespace Presentation.ViewModels {
             }
         }
 
-        public Visibility Visible {
-            get { return visible; }
+        public Visibility AddNewClientDialogVisible {
+            get { return addNewClientDialogVisible; }
             set {
-                visible = value;
-                OnPropertyChanged("Visible");
+                addNewClientDialogVisible = value;
+                OnPropertyChanged("AddNewClientDialogVisible");
             }
         }
 

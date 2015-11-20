@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using Presentation.Models;
 using Presentation.ViewModels;
+using Presentation.ViewModels.ClientsInformation;
 
 #endregion
 

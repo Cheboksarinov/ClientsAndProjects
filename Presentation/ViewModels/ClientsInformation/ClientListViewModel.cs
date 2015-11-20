@@ -8,7 +8,7 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ClientsInformation {
     public class ClientListViewModel : ViewModel {
         private readonly ClientStorage clientStorage;
 
@@ -30,7 +30,7 @@ namespace Presentation.ViewModels {
         public NewClientViewModel NewClient { get; private set; }
 
         private void OnShowNewClientControl() {
-            NewClient.Visible = Visibility.Visible;
+            NewClient.AddNewClientDialogVisible = Visibility.Visible;
             OnPropertyChanged("NewClient");
         }
 
@@ -48,7 +48,7 @@ namespace Presentation.ViewModels {
         }
 
         private void HideNewClientControl() {
-            NewClient.Visible = Visibility.Hidden;
+            NewClient.AddNewClientDialogVisible = Visibility.Hidden;
             OnPropertyChanged("NewClient");
         }
     }

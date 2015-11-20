@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:Presentation.ViewModels;assembly=Presentation"
+             xmlns:projectsInformation="clr-namespace:Presentation.ViewModels.ProjectsInformation;assembly=Presentation"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300"
-             d:DataContext="{d:DesignInstance viewModels:ProjectViewModel}">
+             d:DataContext="{d:DesignInstance projectsInformation:ProjectViewModel}">
 
     <Grid>
         <Grid.ColumnDefinitions>

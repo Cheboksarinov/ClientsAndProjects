@@ -8,18 +8,18 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ProjectsInformation {
     public class NewProjectViewModel : ViewModel {
         private readonly ProjectListViewModel parent;
         private readonly Project project;
         private ICommand addCommand;
-        private Visibility visible;
+        private Visibility addNewProjectDialogVisible;
 
         public NewProjectViewModel(ProjectListViewModel parent) {
             this.parent = parent;
             project = new Project {ClientName = "", Name = "", Status = ""};
             AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
-            visible = Visibility.Hidden;
+            addNewProjectDialogVisible = Visibility.Hidden;
             Status = AvaliableStatusList.First();
         }
 
@@ -49,11 +49,11 @@ namespace Presentation.ViewModels {
             }
         }
 
-        public Visibility Visible {
-            get { return visible; }
+        public Visibility AddNewProjectDialogVisible {
+            get { return addNewProjectDialogVisible; }
             set {
-                visible = value;
-                OnPropertyChanged("Visible");
+                addNewProjectDialogVisible = value;
+                OnPropertyChanged("AddNewProjectDialogVisible");
             }
         }
 

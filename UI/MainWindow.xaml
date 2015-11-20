@@ -23,7 +23,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <controls:ClientDataUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ClientList}"/>
+                    <controls:ClientListUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ClientList}"/>
                     <controls:NewClientUserControl Grid.Column="1" Grid.Row="0" DataContext="{Binding ClientList.NewClient}"/>
                 </Grid>
                 </ScrollViewer>
@@ -41,7 +41,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <controls:ProjectDataUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ProjectList}"/>
+                        <controls:ProjectListUserControl Grid.Column ="0" Grid.Row="0" DataContext="{Binding ProjectList}"/>
                         <controls:NewProjectUserControl Grid.Column="1" Grid.Row="0" DataContext="{Binding ProjectList.NewProject}"/>
                     </Grid>
                 </ScrollViewer>

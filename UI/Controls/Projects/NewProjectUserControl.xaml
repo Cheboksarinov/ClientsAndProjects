@@ -4,15 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:Presentation.ViewModels;assembly=Presentation"
+             xmlns:projectsInformation="clr-namespace:Presentation.ViewModels.ProjectsInformation;assembly=Presentation"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             d:DataContext="{d:DesignInstance viewModels:NewProjectViewModel}"
-             Visibility="{Binding Visible}">
+             d:DataContext="{d:DesignInstance projectsInformation:NewProjectViewModel}"
+             Visibility="{Binding AddNewProjectDialogVisible}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="50" />
-            <ColumnDefinition Width="Auto" MinWidth="50" />
-            <ColumnDefinition Width="Auto" MinWidth="50" />
+            <ColumnDefinition Width="Auto" MinWidth="65" />
+            <ColumnDefinition Width="Auto" MinWidth="65" />
+            <ColumnDefinition Width="Auto" MinWidth="65" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="20" />

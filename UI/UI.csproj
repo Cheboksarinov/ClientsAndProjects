@@ -53,27 +53,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\ClientDataUserControl.xaml">
+    <Page Include="Controls\Clients\ClientListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ClientUserControl.xaml">
+    <Page Include="Controls\Clients\ClientUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NewClientUserControl.xaml">
+    <Page Include="Controls\Clients\NewClientUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\NewProjectUserControl.xaml">
+    <Page Include="Controls\Projects\NewProjectUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProjectDataUserControl.xaml">
+    <Page Include="Controls\Projects\ProjectListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ProjectUserControl.xaml">
+    <Page Include="Controls\Projects\ProjectUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,22 +86,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Controls\ClientDataUserControl.xaml.cs">
-      <DependentUpon>ClientDataUserControl.xaml</DependentUpon>
+    <Compile Include="Controls\Clients\ClientListUserControl.xaml.cs">
+      <DependentUpon>ClientListUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ClientUserControl.xaml.cs">
+    <Compile Include="Controls\Clients\ClientUserControl.xaml.cs">
       <DependentUpon>ClientUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NewClientUserControl.xaml.cs">
+    <Compile Include="Controls\Clients\NewClientUserControl.xaml.cs">
       <DependentUpon>NewClientUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\NewProjectUserControl.xaml.cs">
+    <Compile Include="Controls\Projects\NewProjectUserControl.xaml.cs">
       <DependentUpon>NewProjectUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectDataUserControl.xaml.cs">
-      <DependentUpon>ProjectDataUserControl.xaml</DependentUpon>
+    <Compile Include="Controls\Projects\ProjectListUserControl.xaml.cs">
+      <DependentUpon>ProjectListUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProjectUserControl.xaml.cs">
+    <Compile Include="Controls\Projects\ProjectUserControl.xaml.cs">
       <DependentUpon>ProjectUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">

@@ -7,7 +7,7 @@ using Presentation.Models;
 
 #endregion
 
-namespace Presentation.ViewModels {
+namespace Presentation.ViewModels.ProjectsInformation {
     public class ProjectViewModel : ViewModel {
         private readonly ProjectListViewModel parent;
         private readonly Project project;
