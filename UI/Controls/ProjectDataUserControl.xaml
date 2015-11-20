@@ -20,7 +20,7 @@
         <ItemsControl HorizontalAlignment="Stretch" Grid.Column="0" ItemsSource="{Binding Projects}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <controls:ProjectUserControl Height="Auto" Width="Auto" HorizontalAlignment="Stretch" />
+                    <controls:ProjectUserControl  HorizontalAlignment="Stretch" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
