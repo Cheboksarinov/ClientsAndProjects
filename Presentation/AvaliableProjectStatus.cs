@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
+
+#endregion
 
 namespace Presentation {
     public static class AvaliableProjectStatus {
         private static readonly List<string> projectStatusCollection;
+
         static AvaliableProjectStatus() {
             projectStatusCollection = new List<string> {
                 "Первичный контакт",
@@ -12,6 +17,7 @@ namespace Presentation {
                 "Закончен"
             };
         }
+
         public static List<string> GetAvaliableStatusList() {
             return projectStatusCollection;
         }

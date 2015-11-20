@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using UI;
+
+#endregion
 
 namespace Start {
     internal static class Program {

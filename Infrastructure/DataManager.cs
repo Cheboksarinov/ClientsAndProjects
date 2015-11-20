@@ -1,6 +1,10 @@
-﻿using System.Linq;
+﻿#region Usings
+
+using System.Linq;
 using Presentation;
 using Presentation.Models;
+
+#endregion
 
 namespace Infrastructure {
     public class DataManager {

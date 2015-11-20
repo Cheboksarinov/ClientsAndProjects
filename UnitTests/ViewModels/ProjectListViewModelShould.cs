@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿#region Usings
+
+using System.Linq;
 using NUnit.Framework;
 using Presentation.Models;
 using Presentation.ViewModels;
+
+#endregion
 
 namespace UnitTests.ViewModels {
     [TestFixture]
@@ -9,24 +13,6 @@ namespace UnitTests.ViewModels {
         [SetUp]
         public void SetUp() {
             projectStorage = new ProjectStorage();
-        }
-
-        private ProjectListViewModel projectListViewModel;
-        private ProjectStorage projectStorage;
-
-        private ProjectListViewModel Open() {
-            return new ProjectListViewModel(projectStorage);
-        }
-
-        private bool? IsProjectStorageContainProject(Project project) {
-            return projectStorage.Projects.Any(_ => _.Name == project.Name && _.ClientName == project.ClientName &&
-                                                    _.Status == project.Status);
-        }
-
-        private void InsertNewClientData(Project projectForAdd) {
-            projectListViewModel.NewProject.Name = projectForAdd.Name;
-            projectListViewModel.NewProject.ClientName = projectForAdd.ClientName;
-            projectListViewModel.NewProject.Status = projectForAdd.Status;
         }
 
         [Test]
@@ -57,6 +43,24 @@ namespace UnitTests.ViewModels {
             projectListViewModel.Projects.Single().Remove.Execute(null);
 
             Assert.IsFalse(IsProjectStorageContainProject(projectForRemove));
+        }
+
+        private ProjectListViewModel projectListViewModel;
+        private ProjectStorage projectStorage;
+
+        private ProjectListViewModel Open() {
+            return new ProjectListViewModel(projectStorage);
+        }
+
+        private bool? IsProjectStorageContainProject(Project project) {
+            return projectStorage.Projects.Any(_ => _.Name == project.Name && _.ClientName == project.ClientName &&
+                                                    _.Status == project.Status);
+        }
+
+        private void InsertNewClientData(Project projectForAdd) {
+            projectListViewModel.NewProject.Name = projectForAdd.Name;
+            projectListViewModel.NewProject.ClientName = projectForAdd.ClientName;
+            projectListViewModel.NewProject.Status = projectForAdd.Status;
         }
     }
 }

@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region Usings
+
+using System;
 using System.Windows.Input;
+
+#endregion
 
 namespace Presentation {
     public class Command : ICommand {
@@ -10,6 +14,7 @@ namespace Presentation {
             this.action = action;
             this.canExecute = canExecute ?? (() => true);
         }
+
         public void Execute(object parameter) {
             action();
         }

@@ -1,6 +1,10 @@
-﻿using System.Windows;
+﻿#region Usings
+
+using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
+
+#endregion
 
 namespace Presentation.ViewModels {
     public class NewClientViewModel : ViewModel {
@@ -8,11 +12,13 @@ namespace Presentation.ViewModels {
         private readonly ClientListViewModel parent;
         private ICommand addCommand;
         private Visibility visible;
+
         public NewClientViewModel(ClientListViewModel parent) {
             this.parent = parent;
             client = new Client {Name = "", ContactName = ""};
             visible = Visibility.Hidden;
         }
+
         public string ContactName {
             get { return client.ContactName; }
             set {
@@ -20,6 +26,7 @@ namespace Presentation.ViewModels {
                 OnPropertyChanged("ContactName");
             }
         }
+
         public string Name {
             get { return client.Name; }
             set {
@@ -35,6 +42,7 @@ namespace Presentation.ViewModels {
                 OnPropertyChanged("Visible");
             }
         }
+
         public ICommand Add {
             get { return addCommand ?? (addCommand = new Command(() => parent.AddClient(client))); }
         }

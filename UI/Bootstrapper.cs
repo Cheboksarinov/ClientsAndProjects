@@ -1,6 +1,10 @@
-﻿using Infrastructure;
+﻿#region Usings
+
+using Infrastructure;
 using Presentation.Models;
 using Presentation.ViewModels;
+
+#endregion
 
 namespace UI {
     public class Bootstrapper {
@@ -11,16 +15,24 @@ namespace UI {
         }
 
         public void Start(MainWindow window) {
+            var dataManager = new DataManager();
             var clientStorage = new ClientStorage();
             var projectStorage = new ProjectStorage();
-            var dataManager = new DataManager();
+            LoadDefaultData(dataManager, clientStorage, projectStorage);
+            window.DataContext = PrepareMainViewModel(clientStorage, projectStorage);
+            window.Show();
+        }
+
+        private void LoadDefaultData(DataManager dataManager, ClientStorage clientStorage, ProjectStorage projectStorage) {
             dataManager.LoadDefaultClients(clientStorage);
             dataManager.LoadDefaultProjects(projectStorage);
+        }
+
+        private MainViewModel PrepareMainViewModel(ClientStorage clientStorage, ProjectStorage projectStorage) {
             var clientListViewModel = new ClientListViewModel(clientStorage);
             var projectListViewModel = new ProjectListViewModel(projectStorage);
             var mainViewModel = new MainViewModel(clientListViewModel, projectListViewModel);
-            window.DataContext = mainViewModel;
-            window.Show();
+            return mainViewModel;
         }
     }
 }

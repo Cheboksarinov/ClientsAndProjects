@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
+
+#endregion
 
 namespace Presentation.Models {
     public class ClientStorage {
@@ -6,7 +10,7 @@ namespace Presentation.Models {
             Clients = new List<Client>();
         }
 
-        public ICollection<Client> Clients { get; private set; }
+        public ICollection<Client> Clients { get; }
 
         public void AddClient(Client client) {
             Clients.Add(client);

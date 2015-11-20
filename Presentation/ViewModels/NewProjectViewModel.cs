@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
+#endregion
+
 namespace Presentation.ViewModels {
     public class NewProjectViewModel : ViewModel {
-        private readonly List<string> avaliableStatusList;
         private readonly ProjectListViewModel parent;
         private readonly Project project;
         private ICommand addCommand;
@@ -15,9 +18,9 @@ namespace Presentation.ViewModels {
         public NewProjectViewModel(ProjectListViewModel parent) {
             this.parent = parent;
             project = new Project {ClientName = "", Name = "", Status = ""};
-            avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
             visible = Visibility.Hidden;
-            Status = avaliableStatusList.First();
+            Status = AvaliableStatusList.First();
         }
 
         public string Name {
@@ -28,9 +31,7 @@ namespace Presentation.ViewModels {
             }
         }
 
-        public List<string> AvaliableStatusList {
-            get { return avaliableStatusList; }
-        }
+        public List<string> AvaliableStatusList { get; }
 
         public string ClientName {
             get { return project.ClientName; }

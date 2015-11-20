@@ -1,5 +1,9 @@
-﻿using System.Windows.Input;
+﻿#region Usings
+
+using System.Windows.Input;
 using Presentation.Models;
+
+#endregion
 
 namespace Presentation.ViewModels {
     public class ClientViewModel : ViewModel {

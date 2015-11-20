@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿#region Usings
+
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
+#endregion
+
 namespace Presentation.ViewModels {
     public class ProjectViewModel : ViewModel {
-        private readonly List<string> avaliableStatusList;
         private readonly ProjectListViewModel parent;
         private readonly Project project;
         private ICommand removeCommand;
@@ -15,7 +18,7 @@ namespace Presentation.ViewModels {
         public ProjectViewModel(Project project, ProjectListViewModel parent) {
             this.project = project;
             this.parent = parent;
-            avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
             ShowStatusChangeControls = new Command(OnShowStatusChangeControls);
             ShowDisplayStatusControls = new Command(OnShowDisplayStatusControls);
             statusChangeMode = Visibility.Hidden;
@@ -49,9 +52,7 @@ namespace Presentation.ViewModels {
             }
         }
 
-        public List<string> AvaliableStatusList {
-            get { return avaliableStatusList; }
-        }
+        public List<string> AvaliableStatusList { get; }
 
         public Visibility StatusChangeMode {
             get { return statusChangeMode; }

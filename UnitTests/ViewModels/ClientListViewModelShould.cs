@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿#region Usings
+
+using System.Linq;
 using NUnit.Framework;
 using Presentation.Models;
 using Presentation.ViewModels;
+
+#endregion
 
 namespace UnitTests.ViewModels {
     [TestFixture]
@@ -9,22 +13,6 @@ namespace UnitTests.ViewModels {
         [SetUp]
         public void SetUp() {
             clientStorage = new ClientStorage();
-        }
-
-        private ClientListViewModel clientListViewModel;
-        private ClientStorage clientStorage;
-
-        private void InsertNewClientData(Client clientForAdd) {
-            clientListViewModel.NewClient.Name = clientForAdd.Name;
-            clientListViewModel.NewClient.ContactName = clientForAdd.ContactName;
-        }
-
-        private bool? IsClientStorageContainClient(Client client) {
-            return clientStorage.Clients.Any(_ => _.Name == client.Name && _.ContactName == client.ContactName);
-        }
-
-        private ClientListViewModel Open() {
-            return new ClientListViewModel(clientStorage);
         }
 
         [Test]
@@ -47,6 +35,22 @@ namespace UnitTests.ViewModels {
             clientListViewModel.Client.Single().Remove.Execute(null);
 
             Assert.IsFalse(IsClientStorageContainClient(clientForRemove));
+        }
+
+        private ClientListViewModel clientListViewModel;
+        private ClientStorage clientStorage;
+
+        private void InsertNewClientData(Client clientForAdd) {
+            clientListViewModel.NewClient.Name = clientForAdd.Name;
+            clientListViewModel.NewClient.ContactName = clientForAdd.ContactName;
+        }
+
+        private bool? IsClientStorageContainClient(Client client) {
+            return clientStorage.Clients.Any(_ => _.Name == client.Name && _.ContactName == client.ContactName);
+        }
+
+        private ClientListViewModel Open() {
+            return new ClientListViewModel(clientStorage);
         }
     }
 }
