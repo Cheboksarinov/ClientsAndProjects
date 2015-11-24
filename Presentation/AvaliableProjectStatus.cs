@@ -19,7 +19,7 @@ namespace Presentation {
         }
 
         public static List<string> GetAvaliableStatusList() {
-            return projectStatusCollection;
+            return new List<string>(projectStatusCollection);
         }
     }
 }

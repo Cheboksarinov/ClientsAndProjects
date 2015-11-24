@@ -19,12 +19,14 @@ namespace Presentation {
             projectStorage.AddProject(new Project {
                 ClientName = "Enbridge",
                 Name = "iOS QDR",
-                Status = AvaliableProjectStatus.GetAvaliableStatusList().Single(_ => _ == "В работе")
+                Status = AvaliableProjectStatus.GetAvaliableStatusList().Single(_ => _ == "В работе"),
+                EndDate = "30.11.15"
             });
             projectStorage.AddProject(new Project {
                 ClientName = "Enbridge",
                 Name = "iOS CDR",
-                Status = AvaliableProjectStatus.GetAvaliableStatusList().Single(_ => _ == "Согласование договора")
+                Status = AvaliableProjectStatus.GetAvaliableStatusList().Single(_ => _ == "Согласование договора"),
+                EndDate = "30.12.15"
             });
             projectStorage.AddProject(new Project {
                 ClientName = "Enbridge",

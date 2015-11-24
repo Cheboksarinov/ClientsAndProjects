@@ -18,6 +18,9 @@ namespace Presentation.ViewModels.ProjectsInformation {
             this.parent = parent;
             project = new Project {ClientName = "", Name = "", Status = ""};
             AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            if (project.EndDate == "No end date") {
+                AvaliableStatusList.Remove("Закончен");
+            }
             addNewProjectDialogVisible = "Hidden";
             Status = AvaliableStatusList.First();
         }
@@ -45,6 +48,16 @@ namespace Presentation.ViewModels.ProjectsInformation {
             set {
                 project.Status = value;
                 OnPropertyChanged("Status");
+            }
+        }
+
+        public string EndDate
+        {
+            get { return project.EndDate; }
+            set
+            {
+                project.EndDate = value;
+                OnPropertyChanged("EndDate");
             }
         }
 

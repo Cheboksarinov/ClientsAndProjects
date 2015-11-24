@@ -18,6 +18,12 @@ namespace Presentation.ViewModels.ProjectsInformation {
             this.project = project;
             this.parent = parent;
             AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            if (string.IsNullOrEmpty(project.EndDate) || string.IsNullOrWhiteSpace(project.EndDate)) {
+                EndDate = "No end date";
+            }
+            if (project.EndDate == "No end date") {
+                AvaliableStatusList.Remove("Закончен");
+            }
             ShowStatusChangeControls = new Command(OnShowStatusChangeControls);
             ShowDisplayStatusControls = new Command(OnShowDisplayStatusControls);
             statusChangeMode = "Hidden";
@@ -52,6 +58,14 @@ namespace Presentation.ViewModels.ProjectsInformation {
         }
 
         public List<string> AvaliableStatusList { get; }
+
+        public string EndDate {
+            get { return project.EndDate; }
+            set {
+                project.EndDate = value;
+                OnPropertyChanged("EndDate");
+            }
+        }
 
         public string StatusChangeMode {
             get { return statusChangeMode; }
