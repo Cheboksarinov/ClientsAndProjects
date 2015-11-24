@@ -1,8 +1,6 @@
 ﻿#region Usings
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Presentation.Models;
 
@@ -20,17 +18,20 @@ namespace Presentation.ViewModels.ClientsInformation {
 
         public ICommand ShowNewClientControl { get; private set; }
 
-        public IEnumerable<ClientViewModel> Client {
+        public ObservableCollection<ClientViewModel> Client {
             get {
-                return from client in clientStorage.Clients
-                    select new ClientViewModel(client, this);
+                var clientsCollection = new ObservableCollection<ClientViewModel>();
+                foreach (var client in clientStorage.Clients) {
+                    clientsCollection.Add(new ClientViewModel(client, this)); 
+                }
+                return clientsCollection;
             }
         }
 
         public NewClientViewModel NewClient { get; private set; }
 
         private void OnShowNewClientControl() {
-            NewClient.AddNewClientDialogVisible = Visibility.Visible;
+            NewClient.AddNewClientDialogVisible = "Visible";
             OnPropertyChanged("NewClient");
         }
 
@@ -48,7 +49,7 @@ namespace Presentation.ViewModels.ClientsInformation {
         }
 
         private void HideNewClientControl() {
-            NewClient.AddNewClientDialogVisible = Visibility.Hidden;
+            NewClient.AddNewClientDialogVisible = "Hidden";
             OnPropertyChanged("NewClient");
         }
     }

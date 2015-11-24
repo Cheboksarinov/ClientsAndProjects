@@ -1,16 +1,16 @@
 ﻿#region Usings
 
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 #endregion
 
 namespace Presentation.Models {
     public class ClientStorage {
         public ClientStorage() {
-            Clients = new List<Client>();
+            Clients = new ObservableCollection<Client>();
         }
 
-        public ICollection<Client> Clients { get; }
+        public ObservableCollection<Client> Clients { get; }
 
         public void AddClient(Client client) {
             Clients.Add(client);

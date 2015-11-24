@@ -1,6 +1,6 @@
 ﻿#region Usings
 
-using Infrastructure;
+using Presentation;
 using Presentation.Models;
 using Presentation.ViewModels;
 using Presentation.ViewModels.ClientsInformation;
@@ -10,12 +10,6 @@ using Presentation.ViewModels.ProjectsInformation;
 
 namespace UI {
     public class Bootstrapper {
-        public static void Run() {
-            var app = new App();
-            app.InitializeComponent();
-            app.Run();
-        }
-
         public void Start(MainWindow window) {
             var dataManager = new DataManager();
             var clientStorage = new ClientStorage();

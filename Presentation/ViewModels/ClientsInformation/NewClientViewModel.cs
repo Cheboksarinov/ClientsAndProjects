@@ -1,6 +1,5 @@
 ﻿#region Usings
 
-using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
@@ -11,12 +10,12 @@ namespace Presentation.ViewModels.ClientsInformation {
         private readonly Client client;
         private readonly ClientListViewModel parent;
         private ICommand addCommand;
-        private Visibility addNewClientDialogVisible;
+        private string addNewClientDialogVisible;
 
         public NewClientViewModel(ClientListViewModel parent) {
             this.parent = parent;
             client = new Client {Name = "", ContactName = ""};
-            addNewClientDialogVisible = Visibility.Hidden;
+            addNewClientDialogVisible = "Hidden";
         }
 
         public string ContactName {
@@ -35,7 +34,7 @@ namespace Presentation.ViewModels.ClientsInformation {
             }
         }
 
-        public Visibility AddNewClientDialogVisible {
+        public string AddNewClientDialogVisible {
             get { return addNewClientDialogVisible; }
             set {
                 addNewClientDialogVisible = value;

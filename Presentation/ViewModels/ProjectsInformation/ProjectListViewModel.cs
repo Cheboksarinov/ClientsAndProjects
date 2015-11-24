@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
@@ -38,16 +37,16 @@ namespace Presentation.ViewModels.ProjectsInformation {
             projectStorage.AddProject(project);
             OnPropertyChanged("Projects");
             NewProject = new NewProjectViewModel(this);
-            HideNewClientControl();
+            HideNewProjectControl();
         }
 
         public void OnShowNewProjectControl() {
-            NewProject.AddNewProjectDialogVisible = Visibility.Visible;
+            NewProject.AddNewProjectDialogVisible = "Visible";
             OnPropertyChanged("NewProject");
         }
 
-        private void HideNewClientControl() {
-            NewProject.AddNewProjectDialogVisible = Visibility.Hidden;
+        private void HideNewProjectControl() {
+            NewProject.AddNewProjectDialogVisible ="Hidden";
             OnPropertyChanged("NewProject");
         }
     }

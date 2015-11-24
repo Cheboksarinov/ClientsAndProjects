@@ -51,10 +51,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{57ACBD06-3F4E-42D4-BCAB-3BAA9FB1D519}</Project>
-      <Name>Infrastructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Presentation\Presentation.csproj">
       <Project>{5C4910CA-1538-42D2-AABC-3F2A004F03F0}</Project>
       <Name>Presentation</Name>

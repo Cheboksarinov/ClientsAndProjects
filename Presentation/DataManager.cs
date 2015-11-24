@@ -1,12 +1,11 @@
 ﻿#region Usings
 
 using System.Linq;
-using Presentation;
 using Presentation.Models;
 
 #endregion
 
-namespace Infrastructure {
+namespace Presentation {
     public class DataManager {
         public void LoadDefaultClients(ClientStorage clientStorage) {
             clientStorage.AddClient(new Client {Name = "Enbridge", ContactName = "Daren"});

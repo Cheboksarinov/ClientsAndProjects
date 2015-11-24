@@ -1,7 +1,6 @@
 ﻿#region Usings
 
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
@@ -12,8 +11,8 @@ namespace Presentation.ViewModels.ProjectsInformation {
         private readonly ProjectListViewModel parent;
         private readonly Project project;
         private ICommand removeCommand;
-        private Visibility statusChangeMode;
-        private Visibility statusDisplayMode;
+        private string statusChangeMode;
+        private string statusDisplayMode;
 
         public ProjectViewModel(Project project, ProjectListViewModel parent) {
             this.project = project;
@@ -21,8 +20,8 @@ namespace Presentation.ViewModels.ProjectsInformation {
             AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
             ShowStatusChangeControls = new Command(OnShowStatusChangeControls);
             ShowDisplayStatusControls = new Command(OnShowDisplayStatusControls);
-            statusChangeMode = Visibility.Hidden;
-            statusDisplayMode = Visibility.Visible;
+            statusChangeMode = "Hidden";
+            statusDisplayMode = "Visible";
         }
 
         public ICommand ShowStatusChangeControls { get; private set; }
@@ -54,7 +53,7 @@ namespace Presentation.ViewModels.ProjectsInformation {
 
         public List<string> AvaliableStatusList { get; }
 
-        public Visibility StatusChangeMode {
+        public string StatusChangeMode {
             get { return statusChangeMode; }
             set {
                 statusChangeMode = value;
@@ -62,7 +61,7 @@ namespace Presentation.ViewModels.ProjectsInformation {
             }
         }
 
-        public Visibility StatusDisplayMode {
+        public string StatusDisplayMode {
             get { return statusDisplayMode; }
             set {
                 statusDisplayMode = value;
@@ -75,13 +74,13 @@ namespace Presentation.ViewModels.ProjectsInformation {
         }
 
         private void OnShowStatusChangeControls() {
-            StatusChangeMode = Visibility.Visible;
-            StatusDisplayMode = Visibility.Hidden;
+            StatusChangeMode = "Visible";
+            StatusDisplayMode = "Hidden";
         }
 
         private void OnShowDisplayStatusControls() {
-            StatusChangeMode = Visibility.Hidden;
-            StatusDisplayMode = Visibility.Visible;
+            StatusChangeMode = "Hidden";
+            StatusDisplayMode = "Visible";
         }
     }
 }

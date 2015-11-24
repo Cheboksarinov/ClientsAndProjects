@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Command.cs" />
     <Compile Include="AvaliableProjectStatus.cs" />
+    <Compile Include="DataManager.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\ClientStorage.cs" />
     <Compile Include="Models\Project.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="ViewModels\ProjectsInformation\ProjectViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

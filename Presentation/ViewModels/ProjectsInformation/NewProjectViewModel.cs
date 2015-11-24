@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using Presentation.Models;
 
@@ -13,13 +12,13 @@ namespace Presentation.ViewModels.ProjectsInformation {
         private readonly ProjectListViewModel parent;
         private readonly Project project;
         private ICommand addCommand;
-        private Visibility addNewProjectDialogVisible;
+        private string addNewProjectDialogVisible;
 
         public NewProjectViewModel(ProjectListViewModel parent) {
             this.parent = parent;
             project = new Project {ClientName = "", Name = "", Status = ""};
             AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
-            addNewProjectDialogVisible = Visibility.Hidden;
+            addNewProjectDialogVisible = "Hidden";
             Status = AvaliableStatusList.First();
         }
 
@@ -49,7 +48,7 @@ namespace Presentation.ViewModels.ProjectsInformation {
             }
         }
 
-        public Visibility AddNewProjectDialogVisible {
+        public string AddNewProjectDialogVisible {
             get { return addNewProjectDialogVisible; }
             set {
                 addNewProjectDialogVisible = value;
