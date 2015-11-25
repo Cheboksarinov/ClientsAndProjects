@@ -10,6 +10,7 @@ namespace Presentation.ViewModels.ProjectsInformation {
     public class ProjectViewModel : ViewModel {
         private readonly ProjectListViewModel parent;
         private readonly Project project;
+        private List<string> avaliableStatusList;
         private ICommand removeCommand;
         private string statusChangeMode;
         private string statusDisplayMode;
@@ -17,12 +18,9 @@ namespace Presentation.ViewModels.ProjectsInformation {
         public ProjectViewModel(Project project, ProjectListViewModel parent) {
             this.project = project;
             this.parent = parent;
-            AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
             if (string.IsNullOrEmpty(project.EndDate) || string.IsNullOrWhiteSpace(project.EndDate)) {
                 EndDate = "No end date";
-            }
-            if (project.EndDate == "No end date") {
-                AvaliableStatusList.Remove("Закончен");
             }
             ShowStatusChangeControls = new Command(OnShowStatusChangeControls);
             ShowDisplayStatusControls = new Command(OnShowDisplayStatusControls);
@@ -57,11 +55,24 @@ namespace Presentation.ViewModels.ProjectsInformation {
             }
         }
 
-        public List<string> AvaliableStatusList { get; }
+        public List<string> AvaliableStatusList {
+            get {
+                avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+                if (EndDate != "No end date") return avaliableStatusList;
+                avaliableStatusList.Remove("Закончен");
+                if (Status != "Закончен") return avaliableStatusList;
+                Status = "Первичный контакт";
+                OnPropertyChanged("Status");
+                return avaliableStatusList;
+            }
+        }
 
         public string EndDate {
             get { return project.EndDate; }
             set {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) {
+                    value = "No end date";
+                }
                 project.EndDate = value;
                 OnPropertyChanged("EndDate");
             }

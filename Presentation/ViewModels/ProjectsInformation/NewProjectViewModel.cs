@@ -13,11 +13,13 @@ namespace Presentation.ViewModels.ProjectsInformation {
         private readonly Project project;
         private ICommand addCommand;
         private string addNewProjectDialogVisible;
+        private List<string> avaliableStatusList;
 
         public NewProjectViewModel(ProjectListViewModel parent) {
             this.parent = parent;
             project = new Project {ClientName = "", Name = "", Status = ""};
-            AvaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+            EndDate = "No end date";
             if (project.EndDate == "No end date") {
                 AvaliableStatusList.Remove("Закончен");
             }
@@ -33,7 +35,17 @@ namespace Presentation.ViewModels.ProjectsInformation {
             }
         }
 
-        public List<string> AvaliableStatusList { get; }
+        public List<string> AvaliableStatusList {
+            get {
+                avaliableStatusList = AvaliableProjectStatus.GetAvaliableStatusList();
+                if (EndDate != "No end date") return avaliableStatusList;
+                avaliableStatusList.Remove("Закончен");
+                if (Status != "Закончен") return avaliableStatusList;
+                Status = "Первичный контакт";
+                OnPropertyChanged("Status");
+                return avaliableStatusList;
+            }
+        }
 
         public string ClientName {
             get { return project.ClientName; }
@@ -51,13 +63,15 @@ namespace Presentation.ViewModels.ProjectsInformation {
             }
         }
 
-        public string EndDate
-        {
+        public string EndDate {
             get { return project.EndDate; }
-            set
-            {
+            set {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)) {
+                    value = "No end date";
+                }
                 project.EndDate = value;
                 OnPropertyChanged("EndDate");
+                OnPropertyChanged("AvaliableStatusList");
             }
         }
 
